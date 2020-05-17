@@ -1,0 +1,31 @@
+/* --------------------------------------------------- Functions */
+
+/* Calculate padding for correct aspect ratio for responsive videos */
+@function video-aspect($width: 640, $height: 360) {
+  @return percentage($height / $width) / 2;
+}
+
+/* Set a color from $colors */
+@function color($color, $tone: 'base') {
+  @if map-has-key($colors, $color) == true {
+    @return map-get(map-get($colors, $color), $tone);
+  } @else {
+    @warn "Couldn't find a color named `#{$color}`.";
+    @return inherit;
+  }
+}
+
+/* Set a width from $breakpoints */
+@function breakpoint($width) {
+  @if map-has-key($breakpoints, $width) == true {
+    @return map-get($breakpoints, $width);
+  } @else {
+    @warn "Couldn't find a width point named `#{$width}`.";
+    @return auto;
+  }
+}
+
+/* Unquote slash */
+@function s() {
+  @return unquote("/")
+}

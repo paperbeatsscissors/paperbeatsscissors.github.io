@@ -1,0 +1,102 @@
+/* -------------------------------------------------------------- Notifications */
+
+.notify {
+	&.success {
+
+	}
+
+	&.caution {
+
+	}
+
+	&.error {
+
+	}
+}
+
+/* -------------------------------------------------------------- Buttons */
+
+.btn {
+	display: inline-block;
+  line-height: 1em;
+  border: none;
+  cursor: pointer;
+	transition: all .25s linear;
+	
+	// Color Variants. Add or remove as needed.
+	&.btn01 {
+		background: rgba(color(primary), 0.8);
+		color: #fff;
+		&:hover {
+			background: rgba(color(primary), 1);
+		}
+	}
+
+	&.btn02 {
+		background: rgba(color(secondary), 0.8);
+		color: #fff;
+		&:hover {
+			background: rgba(color(secondary), 1);
+		}
+	}
+
+	&.btn03 {
+		background: rgba(color(tertiary), 0.8);
+		color: #fff;
+		&:hover {
+			background: rgba(color(tertiary), 1);
+		}
+	}
+	
+	// Size Variants. Add or remove as needed.
+	&.sml {
+    @include font($fontSans, .8rem, 400, 1.5em, normal);
+    padding: .5rem 1rem;
+	}
+
+	&.med {
+    @include font($fontSans, 1rem, 400, 1.5em, normal);
+		padding: .5rem 1.5rem;
+	}
+
+	&.lrg {
+    @include font($fontSans, 1rem, 400, 1.5em, normal);
+		padding: 1rem 2.5rem;
+	}
+}
+
+/* -------------------------------------------------------------- Responsive Video */
+// Be sure to wrap all Youtube or Vimeo embeds in a div.video.
+
+.video {
+	width: 100%;
+	height: 0;
+  padding: video-aspect() 0;
+	margin: 0 0 1.5rem;
+	position: relative;
+	overflow: hidden;
+
+	iframe, object, embed {
+		position: absolute;
+		top: 0;
+		left: 0;
+    right: 0;
+    bottom: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+/* -------------------------------------------------------------- Modal Overlay */
+
+.modal-overlay {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	z-index: 1000;
+	display: none;
+}

@@ -1,0 +1,83 @@
+/* -------------------------------------------------------------- Grid */
+/*
+
+GRID PARENT REFERENCE
+display: grid | inline-grid | subgrid;
+grid-template-areas: 
+  "header header header header"
+  "main main . sidebar"
+  "footer footer footer footer";
+*/
+
+@mixin grid-wrap ($display, $cols, $rows, $colgap: 0, $rowgap: 0, $justify: stretch, $align: stretch) {
+  display: $display;
+  grid-template-columns: $cols;
+  grid-template-rows: $rows;
+  grid-column-gap: $colgap;
+  grid-row-gap: $rowgap;
+  justify-items: $justify;
+  align-items: $align;
+}
+
+/* Use if grid does not have a set number of elements */
+@mixin grid-spill ($cols, $rows) {
+  grid-auto-columns: $cols;
+  grid-auto-rows: $rows;
+}
+
+@mixin grid-item ($cols, $rows, $justify: null, $align: null) {
+  grid-column: $cols;
+  grid-row: $rows;
+  @if $justify != null { justify-self: $justify; }
+  @if $align != null { align-self: $align; }
+}
+
+/* -------------------------------------------------------------- Flex */
+@mixin flex-wrap ($x: flex-start, $y: flex-start, $flow: row wrap, $spread: flex-start) {
+  display: flex;
+  flex-flow: $flow;
+  justify-content: $x;
+  align-items: $y;
+  align-content: $spread;
+}
+
+@mixin flex-grid ($fraction, $gutter: 0) {
+  $percent: percentage($fraction);
+
+  @if length($gutter) == 1 {
+    $gw: $gutter * 2;
+    $gm: $gutter;
+    
+    @if $gw == 0 {
+      width: #{$percent};
+    } @else {
+      width: calc(#{$percent} - #{$gw});
+    }
+    margin: #{$gm};
+
+  } @else if (length($gutter) == 2) or (length($gutter) == 3) {
+    $gw: (nth($gutter, 2)) * 2;
+    $gm: $gutter;
+
+    @if $gw == 0 {
+      width: #{$percent};
+    } @else {
+      width: calc(#{$percent} - #{$gw});
+    }
+    margin: #{$gm};
+
+  } @else if length($gutter) == 4 {
+    $gw: (nth($gutter, 2)) + (nth($gutter, 4));
+    $gm: $gutter;
+
+    @if $gw == 0 {
+      width: #{$percent};
+    } @else {
+      width: calc(#{$percent} - #{$gw});
+    }
+    margin: #{$gm};
+
+  } @else {
+    @warn "Incorrect number of arguments for margin";
+  }
+}

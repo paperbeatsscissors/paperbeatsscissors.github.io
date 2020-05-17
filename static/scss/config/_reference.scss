@@ -1,0 +1,85 @@
+/* --------------------------------------------------- CSS Reference */
+/* No more Googling CSS properties! A handy copy/paste reference for the more slippery items. */
+
+/*
+
+BOX SIZING
+
+box-sizing: content-box;
+box-sizing: border-box;
+
+*/
+
+/*
+
+FLEXBOX
+
+display: flex;
+
+// The flex-direction CSS property specifies how flex items are placed in the flex container defining the main axis and the direction (normal or reversed).
+flex-direction: row;
+flex-direction: row-reverse;
+flex-direction: column;
+flex-direction: column-reverse;
+
+// The CSS flex-wrap property specifies whether flex items are forced into a single line or can be wrapped onto multiple lines. If wrapping is allowed, this property also enables you to control the direction in which lines are stacked.
+flex-wrap: nowrap;
+flex-wrap: wrap;
+flex-wrap: wrap-reverse;
+
+// The flex-flow CSS property is a shorthand property for flex-direction and flex-wrap individual properties.
+flex-flow: row;
+flex-flow: row-reverse;
+flex-flow: column;
+flex-flow: column-reverse;
+flex-flow: nowrap;
+flex-flow: wrap;
+flex-flow: wrap-reverse;
+flex-flow: row nowrap;
+flex-flow: column wrap;
+flex-flow: column-reverse wrap-reverse;
+
+// The CSS order property specifies the order used to lay out flex items in their flex container. Elements are laid out in the ascending order of the order value. Elements with the same order value are laid out in the order in which they appear in the source code.
+order: 0;
+
+// The CSS justify-content property defines how the browser distributes space between and around flex items along the main-axis of their container.
+justify-content: flex-start;
+justify-content: flex-end;
+justify-content: center;
+justify-content: space-between;
+justify-content: space-around;
+
+// The CSS align-items property aligns flex items of the current flex line the same way as justify-content but in the perpendicular direction.
+align-items: flex-start;
+align-items: flex-end;
+align-items: center;
+align-items: baseline;
+align-items: stretch;
+
+// The align-self CSS property aligns flex items of the current flex line overriding the align-items value. If any of the flex item's cross-axis margin is set to auto, then align-self is ignored.
+align-self: auto;
+align-self: flex-start;
+align-self: flex-end;
+align-self: center;
+align-self: baseline;
+align-self: stretch;
+
+// The CSS align-content property aligns a flex container's lines within the flex container when there is extra space on the cross-axis.
+align-content: flex-start;
+align-content: flex-end;
+align-content: center;
+align-content: space-between;
+align-content: space-around;
+align-content: stretch;
+
+*/
+
+/*
+
+BROWSER SPECIFIC
+
+-ms-overflow-style: none;
+-webkit-overflow-scrolling: touch;
+&::-webkit-scrollbar { width: 0 !important }
+
+*/

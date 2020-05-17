@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+@@include('header-meta.html')
+
+</head>
+<body>
+
+<article class="module_game--wrapper">
+
+  <section class="module_game">
+
+    <div class="module_game--events">
+      <div class="module_game--timer">Time: <span class="js--timer">02:00</span></div>
+      <div class="module_game--score">Score: <span class="js--score">0</span></div>
+    </div>
+
+    <div class="module_game--word">
+      Taboo
+    </div>
+
+    <div class="module_game--prohibited">
+      <div class="module_game--prohibited-words">
+        <div class="module_game--prohibited-word">Just</div>
+        <div class="module_game--prohibited-word" style="text-decoration: line-through;">Don't</div>
+        <div class="module_game--prohibited-word">Say</div>
+        <div class="module_game--prohibited-word">The</div>
+        <div class="module_game--prohibited-word">Word</div>
+      </div>
+
+      <div class="module_game--over">
+        <div class="module_game--over-words">
+          <div class="module_game--over-word">Your</div>
+          <div class="module_game--over-word">Turn</div>
+          <div class="module_game--over-word">Is</div>
+          <div class="module_game--over-word">Over</div>
+
+          <div class="module_game--over-word">
+            <button class="module_game--btn js--next">Play Again</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="module_game--actions">
+      <button class="module_game--action js--skip" disabled>Skip ⇝</button>
+      <button class="module_game--action js--next">Start</button>
+    </div>
+
+  </section>
+
+</article>
+
+@@include('footer-scripts.html')
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+/* -------------------------------------------------------------- Variables */
+
+/* Fonts */
+$fontSans: 'Josefin Sans', sans-serif;
+$fontSerif: 'Abril Fatface', cursive;
+
+/* Colors */
+$colors: (
+  text: (
+    base: #5f34ff
+  ),
+  bg: (
+    base: #fee5cf
+  ),
+  primary: (
+    base: #5f34ff
+  ),
+  secondary: (
+    base: #5f34ff
+  ),
+  tertiary: (
+    base: #5f34ff
+  ),
+  abstract: (
+    base: #5f34ff
+  )
+);
+
+/* Breakpoints */
+$breakpoints: (
+  "x-small": 480px,
+  "small"  : 768px,
+  "medium" : 960px,
+  "large"  : 1224px,
+  "x-large": 1440px
+);
+
+/* ---------------------------------------------------- Mixins, Functions, and Extends */
+@import "config/*.scss";
+
+/* ---------------------------------------------------- Resets and Global Styles (All Projects) */
+@import "global/*.scss";
+
+/* ---------------------------------------------------- Site Plugins (Site Specific) */
+/* Includes some common plugins */
+// @import "plugins/*.scss";
+
+/* ---------------------------------------------------- Site Base Elements (Site Specific) */
+@import "base/*.scss";
+
+/* ---------------------------------------------------- Site Modules (Site Specific) */
+@import "modules/*.scss";

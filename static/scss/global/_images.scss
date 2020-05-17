@@ -1,0 +1,8 @@
+/* -------------------------------------------------------------- Image Elements */
+
+img {
+  // Prevents images in content areas from ever breaking their containers.
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}

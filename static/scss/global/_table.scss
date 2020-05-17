@@ -1,0 +1,97 @@
+/* -------------------------------------------------------------- Responsive Tables */
+
+table { 
+  width: 100%;
+  border-collapse: collapse;
+  border: none;
+
+  @include mq(medium) {
+    display: block;
+  }
+
+  thead {
+    text-align: left;
+
+    @include mq(medium) {
+      display: block;
+
+      tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+    }
+
+    th {
+      padding: .5rem 1.5rem;
+      background: color(text);
+      color: #fff;
+      @include font($fontSans, .875rem, 900, 1.5em, normal);
+      text-transform: uppercase;
+
+      &:last-child {
+        text-align: right;
+      }
+    }
+  }
+
+  tbody {
+    width: 100%;
+
+    @include mq(medium) {
+      display: block;
+    }
+  }
+
+  tr {
+    width: 100%;
+
+    @include mq(medium) {
+      display: block;
+      padding: 1rem 0;
+    }
+
+    &:nth-child(odd) {
+      @include mq(medium) {
+        background: color(bg);
+      }
+    }
+
+    &.has-focus {
+      td {
+        background: rgba(color(text), .05);
+      }
+    }
+  }
+
+  td {
+    padding: .5rem 1.5rem;
+    text-align: left;
+    position: relative;
+    border-bottom: 1px solid color(text);
+
+    @include mq(medium) {
+      display: block;
+      padding: .25rem 1.5rem;
+      border-bottom: none;
+    }
+
+    &:last-child {
+      text-align: right;
+
+      @include mq(medium) {
+        text-align: left;
+      }
+    }
+
+    span {
+      @include font($fontSans, 1rem, 900, 1.5em, normal);
+      color: color(text);
+      display: none;
+
+      @include mq(medium) {
+        display: block;
+      }
+    }
+  }
+}

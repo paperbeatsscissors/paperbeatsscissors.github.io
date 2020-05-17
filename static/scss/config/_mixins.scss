@@ -1,0 +1,140 @@
+/* --------------------------------------------------- Mixins */
+
+/* --------------------------------------------------- Media Queries */
+@mixin mq($breakpoint) {
+  $value: map-get($breakpoints, $breakpoint);
+  
+  @if $value != null {
+    @media (max-width: $value) { @content; }
+  } @else {                                  
+    @media (max-width: $breakpoint) { @content; }
+  }
+}
+
+/* --------------------------------------------------- Font Declaration */
+@mixin font($family, $size: 1rem, $weight: 400, $line: 1.5em, $style: normal) {
+  font-style: $style;
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $line;
+  font-family: $family;
+}
+
+/* --------------------------------------------------- Background Image */
+@mixin bg-img($position: center center, $size: cover, $color: transparent, $repeat: no-repeat) {
+  background-color: $color;
+  background-position: $position;
+  background-repeat: $repeat;
+  background-size: $size;
+}
+
+/* --------------------------------------------------- Center Children */
+@mixin center-content() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --------------------------------------------------- Gradient */
+@function is-direction($value) {
+  $is-direction: index((to top, to top right, to right top, to right, to bottom right, to right bottom, to bottom, to bottom left, to left bottom, to left, to left top, to top left), $value);
+  $is-angle: type-of($value) == 'number' and index('deg' 'grad' 'turn' 'rad', unit($value));
+  
+  @return $is-direction or $is-angle;
+}
+
+@mixin gradient($type, $color-stops...) {
+  @if $type == circle {
+    $type: circle;
+  } @else if is-direction($type) == false {
+    $color-stops: ($type, $color-stops);
+    $type: 180deg;
+  }
+  
+  @if $type == circle {
+    background: nth(nth($color-stops, 1), 1);
+    background: radial-gradient($type, $color-stops);
+  } @else {
+    background: nth(nth($color-stops, 1), 1);
+    background: -webkit-linear-gradient($type, $color-stops);
+    background: linear-gradient($type, $color-stops);
+  }
+}
+
+/* --------------------------------------------------- Triangles */
+@function triangle-direction($value) {
+  $d: index((top, top left, left, bottom left, bottom, bottom right, right, top right), $value);
+  
+  @return $d;
+}
+
+@mixin triangle ($width, $height, $color, $direction) {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  transform: rotate(360deg);
+
+  @if ($direction == top) or ($direction == left) or ($direction == bottom) or ($direction == right) {
+    $width: $width / 2;
+  }
+
+  @if triangle-direction($direction) != false {
+    @if $direction == (top) {
+      border-width: 0 $width $height $width;
+      border-color: transparent transparent $color transparent;
+    } @else if $direction == (top right) {
+      border-width: 0 $width $height 0;
+      border-color: transparent $color transparent transparent;
+    } @else if $direction == (right) {
+      border-width: $width 0 $width $height;
+      border-color: transparent transparent transparent $color;
+    } @else if $direction == (bottom right) {
+      border-width: 0 0 $height $width;
+      border-color: transparent transparent $color transparent;
+    } @else if $direction == (bottom) {
+      border-width: $height $width 0 $width;
+      border-color: $color transparent transparent transparent;
+    } @else if $direction == (bottom left) {
+      border-width: $height 0 0 $width;
+      border-color: transparent transparent transparent $color;
+    } @else if $direction == (left) {
+      border-width: $width $height $width 0;
+      border-color: transparent $color transparent transparent;
+    } @else if $direction == (top left) {
+      border-width: $height $width 0 0;
+      border-color: $color transparent transparent transparent;
+    } @else {
+      @warn "Direction must be set to top, top left, left, bottom left, bottom, bottom right, right, or top right";
+    }
+  }
+}
+
+/* --------------------------------------------------- Overlay */
+@mixin overlay ($color, $opacity) {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  background: rgba($color, $opacity);
+}
+
+/* --------------------------------------------------- Animation */
+@mixin animation ($name, $duration: 1s, $timing: linear, $iteration: infinite, $delay: 0, $direction: normal, $fill: both ) {
+  animation-name: $name;
+  animation-duration: $duration;
+  animation-iteration-count: $iteration;
+  animation-direction: $direction;
+  animation-timing-function: $timing;
+  animation-fill-mode: $fill;
+  animation-delay: $delay;
+}
+
+// Keyframes
+@mixin animation-keyframes ($name) {
+  @keyframes #{$name} {
+    @content;
+  }
+}

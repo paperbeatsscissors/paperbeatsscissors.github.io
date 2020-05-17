@@ -1,0 +1,153 @@
+/* -------------------------------------------------------------- High Level Page Elements */
+
+html {
+  font-size: 16px;
+
+  @include mq(medium) {
+    font-size: 14px;
+  }
+}
+
+body {
+  background: color(bg);
+  color: color(text);
+  @include font($fontSans, 1rem, 400, 1.375em, normal);
+  letter-spacing: .005em;
+
+  // Modal class
+  &.modal-body {
+    overflow: hidden;
+  }
+}
+
+/* Container to constrain content to a max-width */
+.container {
+  width: 100%;
+  max-width: breakpoint(large);
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Content definitions for wysiwyg areas */
+.content {
+
+  // Headings
+  h1 {
+    margin: 0 0 .5rem;
+  }
+  h2 {
+    margin: 0 0 .5rem;
+  }
+  h3 {
+    margin: 0 0 .5rem;
+  }
+  h4 {
+    margin: 0 0 .5rem;
+  }
+  h5 {
+    margin: 0 0 .5rem;
+  }
+
+  p {
+    &+h1 { padding: .5rem 0 0; }
+    &+h2 { padding: .5rem 0 0; }
+    &+h3 { padding: .5rem 0 0; }
+    &+h4 { padding: .5rem 0 0; }
+    &+h5 { padding: .5rem 0 0; }
+  }
+
+	// Content List styles
+	ul {
+		margin: 0 0 1.25rem 2rem;
+		list-style: disc;
+
+    li {
+      margin: 0 0 1rem;
+
+      ul, ol {
+        margin: 1rem 0 1.25rem 1.25rem;
+      }
+
+      ul { list-style: circle; }
+    }
+	}
+  ol {
+		margin: 0 0 1.25rem 2rem;
+		list-style: decimal;
+    
+    li {
+      margin: 0 0 1rem;
+
+      ul, ol {
+        margin: 1rem 0 1.25rem 1.25rem;
+      }
+
+      ol { list-style: lower-alpha; }
+    }
+	}
+
+  // Quotes
+  blockquote {
+    display: block;
+    margin: 0 0 1.5rem;
+  }
+
+  // Inline images
+  figure {
+    display: block;
+    padding: 2rem 0 3rem;
+
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+
+    figcaption {
+      padding: 1rem 1.5rem .5rem;
+      @include font($fontSans, .825rem, 400, 1.5em, normal);
+      text-align: center;
+    }
+
+    &.full {
+      width: 100%;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    &.left {
+      max-width: 50%;
+      float: left;
+      padding: .5rem 2rem 1.5rem 0;
+
+      @include mq(small) {
+        max-width: 100%;
+        float: none;
+        padding: .5rem 0 1.5rem;
+      }
+    }
+
+    &.right {
+      max-width: 50%;
+      float: right;
+      padding: .5rem 0 1.5rem 2rem;
+
+      @include mq(small) {
+        max-width: 100%;
+        float: none;
+        padding: .5rem 0 1.5rem;
+      }
+    }
+  }
+}
+
+/* -------------------------------------------------------------- Page Specific Elements */
+// These are elements related to page layout. Page-specific classes and containers can be included here.
+
+/* Basic content and sidebar areas */
+.page-content {
+}
+
+.page-sidebar {
+}

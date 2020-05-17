@@ -1,0 +1,125 @@
+<!-- Just copy and paste this into your footer or whatever and go wild -->
+
+<!-- DUMMY GRID -->
+<style>
+body.dg--on {
+  position: relative;
+  height: auto;
+}
+
+.dg--toggle {
+  width: 42px;
+  height: 42px;
+  position: fixed;
+  bottom: 8px;
+  right: 8px;
+  z-index: 1000000;
+  background: #ff00ff;
+  cursor: pointer;
+}
+
+.dg--toggle:before, .dg--toggle:after {
+  content: '';
+  display: block;
+  width: 26px;
+  height: 6px;
+  border-top: solid 2px #fff;
+  border-bottom: solid 2px #fff;
+  position: absolute;
+  left: 8px;
+}
+
+.dg--toggle:before {
+  top: 8px;
+}
+
+.dg--toggle:after {
+  bottom: 8px;
+}
+
+.dg--wrap {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+  pointer-events: none;
+  display: none;
+}
+
+.dg--wrap.dg--on {
+  display: block;
+}
+
+.dg--wrap .dg--cont {
+  width: 100%;
+  height: 100%;
+  max-width: 1440px;
+  border-left: solid 1px rgba(255,0,255, .5);
+  border-right: solid 1px rgba(255,0,255, .5);
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAICAYAAADeM14FAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAB5JREFUeNpi/M/wX4oBCTAxoAHCAixArEahGQABBgAnOwJQ/4/YUgAAAABJRU5ErkJggg==');
+  background-position: top center;
+  background-repeat: repeat;
+}
+
+.dg--wrap .dg--cont .dg--col {
+  width: 6.25%;
+  height: 100%;
+  float: left;
+  border-left: solid 1px rgba(255,0,255, .5);
+  border-right: solid 1px rgba(255,0,255, .5);
+}
+
+@media (max-width: 1224px) {
+  .dg--wrap .dg--cont .dg--col {
+    width: 8.3333333333%;
+  }
+
+  .dg--wrap .dg--cont .dg--col:nth-child(1), .dg--wrap .dg--cont .dg--col:nth-child(2), .dg--wrap .dg--cont .dg--col:nth-child(3), .dg--wrap .dg--cont .dg--col:nth-child(4) {
+    display: none;
+  }
+}
+
+@media (max-width: 960px) {
+  .dg--wrap .dg--cont .dg--col {
+    width: 12.5%;
+  }
+
+  .dg--wrap .dg--cont .dg--col:nth-child(5), .dg--wrap .dg--cont .dg--col:nth-child(6), .dg--wrap .dg--cont .dg--col:nth-child(7), .dg--wrap .dg--cont .dg--col:nth-child(8) {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .dg--wrap .dg--cont .dg--col {
+    width: 25%;
+  }
+
+  .dg--wrap .dg--cont .dg--col:nth-child(9), .dg--wrap .dg--cont .dg--col:nth-child(10), .dg--wrap .dg--cont .dg--col:nth-child(11), .dg--wrap .dg--cont .dg--col:nth-child(12) {
+    display: none;
+  }
+}
+</style>
+<div class="dg--wrap">
+  <div class="dg--cont">
+    <div class="dg--col"></div><div class="dg--col"></div><div class="dg--col"></div><div class="dg--col"></div><div class="dg--col"></div><div class="dg--col"></div><div class="dg--col"></div><div class="dg--col"></div><div class="dg--col"></div><div class="dg--col"></div><div class="dg--col"></div><div class="dg--col"></div><div class="dg--col"></div><div class="dg--col"></div><div class="dg--col"></div><div class="dg--col"></div>
+  </div>
+</div>
+<div class="dg--toggle"></div>
+<script>
+var dgToggle = document.querySelector('.dg--toggle'),
+  dgGrid = document.querySelector('.dg--wrap'),
+  dgBody = document.querySelector('body');
+
+function dummyGrid(toggler, target, body) {
+  toggler.addEventListener('click', function(e) {
+    target.classList.toggle('dg--on');
+    body.classList.toggle('dg--on');
+  });
+}
+
+dummyGrid(dgToggle, dgGrid, dgBody);
+</script>
+<!-- /DUMMY GRID -->

@@ -1,0 +1,116 @@
+/* -------------------------------------------------------------- Forms */
+
+.form {
+	width: 100%;
+	display: block;
+  @include flex-wrap;
+
+  .field {
+    @include flex-grid(1/1);
+    position: relative;
+  }
+
+  .field-1-2 {
+    @include flex-grid(1/2);
+    position: relative;
+  }
+  
+  // Text Fields
+  input[type="text"], input[type="password"], input[type="email"], input[type="tel"], input[type="number"], input[type="search"] {
+    width: 100%;
+    display: block;
+    padding: .5rem 1rem;
+    color: color(text);
+    @include font($fontSans, 1rem, 400, 1.5em, normal);
+    transition: all .25s linear;
+
+    &:focus {
+    }
+  }
+
+  // Textarea
+  textarea {
+    width: 100%;
+    height: 240px;
+    display: block;
+    padding: .5rem 1rem;
+    color: color(text);
+    @include font($fontSans, 1rem, 400, 1.5em, normal);
+    transition: all .25s linear;
+
+    &:focus {
+    }
+  }
+
+  // Styled Checkboxes or Radio boxes
+  label.check {
+    position: relative;
+    overflow: hidden;
+
+    input {
+      position: absolute;
+      top: 0;
+      left: -100px;
+      opacity: 0;
+    }
+
+    input+span {
+      width: 100%;
+      padding: .5rem 1rem;
+      display: block;
+      cursor: pointer;
+      transition: all .25s linear;
+    }
+
+    &:hover input+span {
+
+    }
+
+    input:checked+span {
+      background: color(secondary);
+    }
+  }
+  
+  // Standard select
+
+  .select {
+    &:after {
+      content: '';
+      display: block;
+      @include triangle(14px, 12px, color(text), bottom);
+      position: absolute;
+      top: 50%;
+      right: 2rem;
+      margin: -6px 0 0;
+      pointer-events: none;
+    }
+
+    select {
+      width: 100%;
+      display: block;
+      padding: .5rem 1rem;
+      background: color(bg);
+      color: color(text);
+      @include font($fontSans, 1rem, 400, 1.5em, normal);
+      cursor: pointer;
+
+      &::-ms-expand {
+        display: none;
+      }
+    }
+  }
+  
+  // Submit Buttons
+  input[type="submit"], input[type="button"] {
+
+  }
+	
+  // Field Error styling
+	.field-error {
+  }
+
+  // Form Error styling
+  .form-error {
+
+  }
+}

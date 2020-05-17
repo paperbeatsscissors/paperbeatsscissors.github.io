@@ -1,0 +1,93 @@
+/* -------------------------------------------------------------- Text Elements */
+
+/* Select Colors */
+::selection { background: rgba(color(primary), .5); }
+::-moz-selection { background: rgba(color(primary), .5); }
+
+/* Placeholder Colors */
+::-webkit-input-placeholder { color: color(text); }
+:-moz-placeholder { color: color(text); }
+:-ms-input-placeholder { color: color(text); }
+
+/* Paragraph Styles */
+p {
+  margin: 0 0 1.125rem;
+
+  &:last-of-type {
+    margin: 0;
+  }
+}
+
+/* Quote Styles */
+q {
+  quotes: none;
+
+  &:before { content: '“'; }
+  &:after { content: '”'; }
+}
+
+/* Horizontal Rule */
+hr {
+  width: 100%;
+  height: 1px;
+  display: block;
+  border: 0;
+  border-top: 1px solid color(text);
+  margin: 1.5rem 0;
+  padding: 0;
+  clear: both;
+}
+
+/* Link Styles */
+a {
+  color: color(primary);
+  text-decoration: none;
+  outline: none;
+  transition: all .25s linear;
+
+  .icon {
+    fill: currentColor;
+    transition: all .25s linear;
+  }
+
+  &:hover, &:active {
+    color: color(secondary);
+
+    .icon {
+      fill: currentColor;
+    }
+  }
+
+  &:focus {
+    outline: none;
+    color: color(secondary);
+  }
+}
+
+.icon {
+  width: 1.25rem;
+  height: auto;
+  display: inline-block;
+  fill: color(text);
+}
+
+/* Headings */
+h1 {
+  @include font($fontSans, 2rem, 700, 1.3125em, normal);
+}
+
+h2 {
+  @include font($fontSans, 1.625rem, 700, 1.5em, normal);
+}
+
+h3 {
+  @include font($fontSans, 1.375rem, 700, 1.5em, normal);
+}
+
+h4 {
+  @include font($fontSans, 1.25rem, 400, 1.5em, normal);
+}
+
+h5 {
+  @include font($fontSans, 1rem, 400, 1.375em, normal);
+}
